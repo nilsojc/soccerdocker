@@ -18,9 +18,11 @@ In this project we will be fetching Soccer sports API data from a Python applica
   - RapidAPI
   
   
-<h2>Features</h2>  
+<h2>Key Features</h2>  
 
-
+✅API Integration: Can fetch real-time or historical soccer data from a sports API (e.g., Football-Data.org, API-Football, or Sportradar).
+✅Microservices Architecture: Modularizes the application into smaller services (e.g., data fetching, data processing, storage).
+✅Docker Containerization: Creating a Dockerfile to containerize applications, and easily test and deploy them without issue!
 
 
 <h2>Step by Step Instructions</h2>
