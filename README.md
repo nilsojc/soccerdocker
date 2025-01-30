@@ -54,17 +54,74 @@ rm -rf docker docker.tgz
 `Ctrl + p` on Github Codespace > `Add Dev Container Conf files` > modify your active configuration > click on Docker (Docker-in-Docker)
 
 ![image](/assets/image1.png)
+
+
+
+***2.  API and Requirements Setup***
+
+In this step we will preparing our files for container deployment.
+
+We will start by creating an .env file with our API keys (make sure a .gitignore is added to avoid exposing keys. )
+
+```
+nano .env 
+
+RAPID_API_KEY=your_api_key_here
 ```
 
+Then, we will be creating the requirements needed for deploying our application (Libraries and dependencies):
 
-***2. Terraform Configuration***
+```
+nano requirements.txt
 
+fastapi==0.68.1
+uvicorn==0.15.0
+requests==2.26.0
+python-dotenv==0.19.0
+pytest==6.2.5
+httpx==0.19.0
+python-multipart==0.0.5
+```
 
+Within our Python app, there are variables to be applied that we will grab the data from 
 
-***3. Final Result***
+```
+/ - Welcome message and available endpoints
+/health - Health check endpoint
+/player/{player_id} - Get player statistics
+/topscorers/{league_id} - Get top scorers for a league (default: Premier League)
+```
 
+With this app we will fetch player stats from the Premier League, for instance, the top players with most goal scores.
 
+***3. Docker Test and Debugging***
+
+In this step, we will be building and testing our image as well as describing debugging tips for potential issues.
+
+We start by building the docker image within our repo:
+
+```
+docker build -t soccer-stats .
+```
+
+***Cleanup***
+
+When you're done, you can clean up the Docker resources with these commands:
+
+```
+# Stop the container
+docker stop $(docker ps -q --filter ancestor=soccer-stats)
+
+# Remove the container
+docker rm $(docker ps -aq --filter ancestor=soccer-stats)
+
+# Remove the image
+docker rmi soccer-stats
+
+# Remove all unused containers, networks, images (use with caution)
+docker system prune
+```
 
 <h2>Conclusion</h2>
 
-In this project, I learned how to leverage terraform to automate creation of AWS services in preparation with the other projects in the multicloud bootcamp!
+In this project, I learned how to 
