@@ -133,4 +133,4 @@ docker system prune
 
 <h2>Conclusion</h2>
 
-In this project, I learned how to 
+In this project, I learned how to leverage a python application with API data and how to build it to a docker container to further cement DevOps principles.
