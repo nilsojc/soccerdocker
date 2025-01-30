@@ -1,23 +1,25 @@
+<p align="center">
+  <img src="assets/diagram.png" 
+</p>
   
-## ☁️ 30 Days DevOps Challenge -  ☁️
+## ☁️ 30 Days DevOps Challenge - Building a Containerized Soccer Stats App  ☁️
 
-This is part of the sixth project of the DevOps Challenge! 
+This is part of the sixth project of the 30-days DevOps Challenge! 
 
-In this project we will be setting up our whole set of project for this challenge utilizing terraform to create a S3 bucket and create a DynamoDB table which will be the basis and start of our project.
+In this project we will be fetching Soccer sports API data from a Python application which will be wrapped up nicely as a Docker container! This part of the challenge outlines the learning process of working with microservices and containers.
 
 
 <h2>Environments and Technologies Used</h2>
 
-  - Terraform
+  - Docker
   - Amazon Web Services
   - Github Codespaces
-  - S3
-  - DynamoDB
+  - Python
+  - RapidAPI
   
   
 <h2>Features</h2>  
 
-- In here we learn how to deploy AWS services using Terraform in a automated and efficient way.
 
 
 
@@ -40,12 +42,18 @@ We then do `AWS configure` and enter our access and secret key along with the re
 aws sts get-caller-identity
 ```
 
-We will then install terraform CLI:
+We will then roceed with installing the Docker CLI and Docker in Docker (Github Codespaces Setup)
 
 ```
-sudo wget -O - https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
-sudo apt update && sudo apt install terraform
+curl -fsSL https://download.docker.com/linux/static/stable/x86_64/docker-20.10.9.tgz -o docker.tgz \
+tar -xzf docker.tgz \
+sudo mv docker/docker /usr/local/bin/ \
+rm -rf docker docker.tgz
+```
+
+`Ctrl + p` on Github Codespace > `Add Dev Container Conf files` > modify your active configuration > click on Docker (Docker-in-Docker)
+
+![image](/assets/image1.png)
 ```
 
 
