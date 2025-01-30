@@ -104,6 +104,13 @@ We start by building the docker image within our repo:
 docker build -t soccer-stats .
 ```
 
+Then, we will test the container:
+
+```
+docker run -p 8000:8000 --env-file .env soccer-stats
+```
+
+
 ***Cleanup***
 
 When you're done, you can clean up the Docker resources with these commands:
